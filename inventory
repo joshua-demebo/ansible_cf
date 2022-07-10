@@ -1,2 +1,5 @@
-192.168.2.82 //ansible controller
-192.168.2.88 //node machine
+#Ansible Controller
+192.168.2.82
+
+#Node Machine
+192.168.2.88 
