@@ -1,0 +1,30 @@
+---
+- name: To check error handling with Ansible 
+  hosts: localhost 
+  gather_facts: no 
+
+  tasks:
+    - name: TaskX
+      block:
+        - name: First Task  - TaskX
+          debug:
+            msg: 'First task executed successfully - TASKX'
+
+    - name: TaskA
+      block:
+        - name: Failure Task  - TaskA
+          command: /bin/false 
+      rescue:
+        - name: Rescue - TaskA 
+          debug:
+            msg: 'Rescue task to the action now!!! - TASK A'
+
+    - name: TaskB
+      block:
+        - name: Second Task  - TaskB
+          debug:
+            msg: 'Second task executed successfully - TASKB'
+      rescue:
+        - name: Rescue - TaskB
+          debug:
+            msg: 'Rescue task to the action now!!! - TASK B'

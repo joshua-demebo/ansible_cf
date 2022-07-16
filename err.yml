@@ -1,0 +1,27 @@
+---
+- name: To check error handling with Ansible 
+  hosts: localhost 
+  gather_facts: no 
+
+  tasks:
+    - name: Tasks to handle error 
+      block:
+        - name: First Task 
+          debug:
+            msg: 'First task executed successfully'
+
+        - name: Failure tasks 
+          command: /bin/false 
+
+        - name: After Task 
+          debug:
+            msg: 'Task after the failure task. Will this execute?'
+
+      rescue:
+        - name: Task printed when error 
+          debug:
+            msg: 'Rescure task to the action now!!!'
+      always:
+        - name: Task to execute always 
+          debug:
+            msg: 'This task executes always'

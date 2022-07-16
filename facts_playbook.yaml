@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: yes 
+
+  tasks:
+    - name: print distro 
+      debug: 
+        msg: "My machine distro is {{ ansible_distribution }}"
+
+    - name: install using apt 
+      when: ansible_distribution == "ubuntu"
+      package:
+        name: apache2
+        state: latest

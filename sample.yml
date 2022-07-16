@@ -1,0 +1,13 @@
+---
+- name: To perform some troubleshooting operations 
+  hosts: localhost 
+  gather_facts: no 
+
+  tasks:
+    - name: TaskX 
+      debug: 
+        msg: 'TaskX executed'
+
+    - name: TaskY
+      debug: 
+        msg: 'TaskY executed'

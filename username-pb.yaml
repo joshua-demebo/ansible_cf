@@ -1,0 +1,12 @@
+---
+- name: Print user names 
+  hosts: localhost
+  become: true 
+  gather_facts: false 
+  vars: 
+    usernames: ['Alice','Bob','John','Martin']
+  tasks:
+    - name: Create names.txt using Jinja2 
+      template: 
+        src: names.j2
+        dest: /var/www/html/names.txt

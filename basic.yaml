@@ -1,0 +1,9 @@
+---
+- hosts: all
+  vars:
+    salutations: Hello guys!
+
+  tasks:
+    - name: Ansible variable basic usage 
+      debug:
+        msg: "{{ salutations }}"

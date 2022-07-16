@@ -1,0 +1,17 @@
+---
+- name: Perform version check 
+  hosts: myservers
+  gather_facts: no
+  vars: 
+    my_version: 3.3.2
+
+  tasks:
+    - name: compare versions 1
+      debug:
+        msg: "My version is higher than 2.0.0"
+      when: my_version is version('2.0.0','>')
+
+    - name: compare versions 2
+      debug:
+        msg: "My version is higher than 3.0.0"
+      when: my_version is version('3.0.0','>')

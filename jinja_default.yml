@@ -1,0 +1,11 @@
+---
+- name: Default filter 
+  hosts: localhost
+  gather_facts: false 
+  vars: 
+    first_name: John 
+  tasks:
+    - name: Print message 
+      debug:
+        msg: 
+         - "My name is {{ first_name | default('Jacob') }} {{ last_name | default('Best') }}"
